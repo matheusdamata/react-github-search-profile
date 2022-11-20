@@ -12,7 +12,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${(props) => props.theme.background};
+    min-height: 100vh;
+    height: auto;
     color: ${(props) => props.theme.white};
     -webkit-font-smoothing: antialiased;
   }

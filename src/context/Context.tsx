@@ -1,8 +1,8 @@
 import React, { createContext, ReactNode, useReducer } from 'react'
-import { themeReducer, ThemeType } from '../reducer/themeReducer'
+import { themeReducer, ThemeProps } from '../reducer/themeReducer'
 
 type ContextType = {
-  status: ThemeType
+  theme: ThemeProps
   dispatch: React.Dispatch<any>
 }
 
@@ -14,12 +14,14 @@ export const Context = createContext({} as ContextType)
 
 export const ContextProvider = ({ children }: ContextProviderType) => {
   const [themeState, dispatch] = useReducer(themeReducer, {
-    status: 'light',
+    theme: {
+      status: 'dark',
+    },
   })
 
-  const { status } = themeState
+  const { theme } = themeState
 
   return (
-    <Context.Provider value={{ status, dispatch }}>{children}</Context.Provider>
+    <Context.Provider value={{ theme, dispatch }}>{children}</Context.Provider>
   )
 }

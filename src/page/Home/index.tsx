@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { formatDistanceToNow } from 'date-fns'
 import enUS from 'date-fns/esm/locale/en-US'
 
@@ -25,6 +25,7 @@ import {
   SearchContainer,
 } from './styles'
 import api from '../../config/api'
+import { Context } from '../../context/Context'
 
 type UserInfoGithubProps = {
   avatar_url: string
@@ -46,6 +47,10 @@ export function Home() {
   const [searchProfileName, setSearchProfileName] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
+  const { theme } = useContext(Context)
+
+  console.log('home: ' + theme.status)
+
   async function handleSubmitProfile() {
     try {
       if (!searchProfileName) {
@@ -54,7 +59,7 @@ export function Home() {
 
       const json = await api.getUserGithub(searchProfileName)
       setUserInfoGithub(() => json)
-      console.log(json)
+      setSearchProfileName('')
 
       setIsLoading(true)
     } catch (e) {
@@ -70,8 +75,10 @@ export function Home() {
         <MagnifyingGlass size={24} />
         <input
           type="text"
+          required
           placeholder="Search GitHub username..."
           onChange={(event) => setSearchProfileName(event.target.value)}
+          value={searchProfileName}
         />
         <button onClick={handleSubmitProfile}>Search</button>
       </SearchContainer>

@@ -2,9 +2,11 @@ import styled from 'styled-components'
 
 export const Container = styled.main`
   max-width: 47rem;
-  height: calc(100vh - 10rem);
-  margin: 5rem auto;
+  min-height: 100vh;
+  height: auto;
+
   padding: 2.5rem;
+  margin: auto;
 
   display: flex;
   flex-direction: column;
@@ -13,6 +15,8 @@ export const SearchContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  position: relative;
 
   margin: 2rem 0 1rem;
 
@@ -62,6 +66,7 @@ export const ProfileContainer = styled.div`
 
   padding: 2rem 3rem;
 
+  animation: animatetop 2s;
   background: ${(props) => props.theme['base-card']};
 
   img {
@@ -69,6 +74,17 @@ export const ProfileContainer = styled.div`
     height: 95px;
 
     border-radius: 50%;
+  }
+
+  @keyframes animatetop {
+    from {
+      bottom: -300px;
+      opacity: 0;
+    }
+    to {
+      bottom: 0;
+      opacity: 1;
+    }
   }
 `
 export const RightSide = styled.div`
