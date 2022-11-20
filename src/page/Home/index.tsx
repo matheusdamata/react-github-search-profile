@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { formatDistanceToNow } from 'date-fns'
 import enUS from 'date-fns/esm/locale/en-US'
 
@@ -25,7 +25,6 @@ import {
   SearchContainer,
 } from './styles'
 import api from '../../config/api'
-import { Context } from '../../context/Context'
 
 type UserInfoGithubProps = {
   avatar_url: string
@@ -47,14 +46,10 @@ export function Home() {
   const [searchProfileName, setSearchProfileName] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
-  const { theme } = useContext(Context)
-
-  console.log('home: ' + theme.status)
-
   async function handleSubmitProfile() {
     try {
       if (!searchProfileName) {
-        console.log('Digite qual usuário deseja procurar!')
+        alert('Digite qual usuário deseja procurar!')
       }
 
       const json = await api.getUserGithub(searchProfileName)
@@ -63,7 +58,7 @@ export function Home() {
 
       setIsLoading(true)
     } catch (e) {
-      console.log('Tente novamente mais tarde!', e)
+      console.log('Tente novamente mais tarde!')
     }
   }
 

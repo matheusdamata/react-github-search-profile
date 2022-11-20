@@ -56,6 +56,19 @@ export const SearchContainer = styled.div`
     color: ${(props) => props.theme.white};
     background: ${(props) => props.theme['base-button']};
   }
+
+  @media (max-width: 425px) {
+    font-size: 0.75rem;
+
+    button {
+      font-size: 0.75rem;
+      margin-left: 16.3rem;
+    }
+
+    input::placeholder {
+      font-size: 0.75rem;
+    }
+  }
 `
 
 export const ProfileContainer = styled.div`
@@ -86,6 +99,14 @@ export const ProfileContainer = styled.div`
       opacity: 1;
     }
   }
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem;
+  }
 `
 export const RightSide = styled.div`
   display: flex;
@@ -98,6 +119,15 @@ export const RightSide = styled.div`
   a {
     text-decoration: none;
     color: ${(props) => props.theme['base-button']};
+  }
+
+  @media (max-width: 425px) {
+    align-items: center;
+    margin: 0;
+
+    a {
+      font-size: 0.75rem;
+    }
   }
 `
 export const RighSideInfoUser = styled.div`
@@ -113,6 +143,16 @@ export const RighSideInfoUser = styled.div`
   span {
     font-size: 0.75rem;
   }
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+
+    margin-top: 1rem;
+
+    h1 {
+      font-size: 1rem;
+    }
+  }
 `
 
 export const RighSideBioUser = styled.span`
@@ -120,6 +160,11 @@ export const RighSideBioUser = styled.span`
 
   font-size: 0.75rem;
   color: ${(props) => props.theme['base-text']};
+
+  @media (max-width: 425px) {
+    text-align: center;
+    word-wrap: break-word;
+  }
 `
 
 export const RighSideInfoContainer = styled.div`

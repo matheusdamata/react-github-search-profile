@@ -9,7 +9,6 @@ export type ThemeType = {
 }
 
 export const themeReducer = (state: ThemeType, action: any) => {
-  console.log('theme: ', state.theme.status)
   switch (action.type) {
     case 'SWITCH_THEME': {
       return produce(state, (draft) => {

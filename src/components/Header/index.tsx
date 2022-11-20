@@ -22,7 +22,7 @@ export function Header() {
   }
 
   return (
-    <Container>
+    <Container variant={theme.status}>
       <h1>Github Search Profile</h1>
 
       {theme.status === 'dark' ? (
